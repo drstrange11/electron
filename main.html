@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<!-- <link href="css/bootstrap.min.css" rel="stylesheet"/>
+<link href="js/bootstrap.min.js" rel="stylesheet"/> -->
+<title>	GPA CALCULATOR v2.1 </title>
+
+	<script type="text/javascript">
+	var sum=0,i,count=0,t,c1=11;
+	var a=new Array(20);
+	for(t=0;t<11;t++)
+		a[t]=100;
+
+	function calculate(n,i)
+	{var c;
+	n=parseInt(n,10);
+	if(i=="grade1"||i=="grade2"||i=="grade4")
+		c=4;
+	else if(i=="grade3"||i=="grade8"||i=="grade10"||i=="grade11")
+		c=3;
+	else
+		c=1;
+
+	switch(i)
+		{
+
+		case "grade1": a[0]=n*c; break;
+		case "grade2":	a[1]=n*c; break;
+		case "grade3":	a[2]=n*c; break;
+		case "grade4":	a[3]=n*c; break;
+		case "grade5":	a[4]=n*c; break;
+		case "grade6":	a[5]=n*c; break;
+		case "grade7":	a[6]=n*c; break;
+		case "grade8":	a[7]=n*c; break;
+		case "grade9":	a[8]=n*c; break;
+		case "grade10":	a[9]=n*c; break;
+		case "grade11":	a[10]=n*c; break;
+
+		}
+
+
+	}
+
+	function check()
+	{
+	var m;
+	for(m=0;m<c1;m++)
+		if(a[m]%100!=0||a[m]==0)
+			count++;
+	}
+
+	function display()
+	{check();
+		if(count==c1)
+			{var j;
+				for(j=0;j<c1;j++)
+					sum+=a[j];
+
+				sum=sum/28;
+				sum=sum.toFixed(2);
+				document.getElementById("result").innerHTML = "Congratulations!" + "<br/><br/>" + "Your GPA is  " + sum;
+
+				}
+
+	else
+		document.getElementById("result").innerHTML = "Please Enter all the fields. Refresh the page.";
+
+
+	}
+	</script>
+	<style type="text/css">
+		table{text-align: center;}
+		td{padding:10px 10px 10px 10px;}
+		body{background-color: #ffe6e6;}
+		.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #ffcccc;
+	 select{background-color: white;}
+}
+	</style>
+
+</head>
+<body><strong> <div class="container"><center>
+		<div id="top"></div>
+		<h4>5th SEMESTER GPA CALCULATOR 2018 </h4>
+		<br/>
+		<div id="rest"> For RI,RA Category - Enter the grade as 'U'<br/>
+		(The calculator doesn't include arrear subjects of previous semester)<br/>
+		<br/><br/><u>"Please enter the grades carefully"</u></div><br/><br/></strong>
+		<table class="table-striped">
+
+			<tr>
+				<th>S.NO </th>
+				<th>COURSE CODE</th>
+				<th>COURSE</th>
+				<th>GRADE OBTAINED</th>
+			</tr>
+			<tr>
+				<td> 1 </td>
+				<td>MAA301</td>
+				<td> DISCRETE MATHEMATICS</td>
+				<td>
+				<form >
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade1" onchange="calculate(value,name)">
+						<option value="100"> Select </option>
+						<option value="10">S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+
+					</select>
+
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 2</td>
+				<td> CSB302</td>
+				<td> THEORY OF COMPUTATION</td>
+				<td>
+					<form >
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade2" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 3</td>
+				<td> CSB303</td>
+				<td> WEB TECHNOLOGY</td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade3" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 4</td>
+				<td> CSB304</td>
+				<td> SYSTEM SOFTWARE</td>
+				<td>
+				<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade4" onchange="calculate(value,name)">
+						<option value="100">Select </option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 5</td>
+				<td> CSB331 </td>
+				<td> WEB TECHNOLOGY LABORATORY</td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade5" onchange="calculate(value,name)">
+						<option value="100">Select </option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 6</td>
+				<td> CSB332</td>
+				<td> SYSTEM SOFTWARE LABORATORY </td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade6" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 7</td>
+				<td> CSB333</td>
+				<td> SKILL DEVELOPMENT IN PROGRAMMING</td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade7" onchange="calculate(value,name)">
+						<option value="100">Select </option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 8</td>
+				<td> CSB334</td>
+				<td> DESIGN PROJECT II </td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade8" onchange="calculate(value,name)">
+						<option value="100">Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 9</td>
+				<td> ELA331</td>
+				<td> COMMUNICATION SKILLS & PERSONALITY DEVELOPMENT LAB</td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade9" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 10</td>
+				<td> EE </td>
+				<td> ENGINEERING ELECTIVE </td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade10" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+			</tr>
+			<tr>
+				<td> 11</td>
+				<td> OE</td>
+				<td> OPEN ELECTIVE</td>
+				<td>
+					<form>
+					<select class="btn btn-default btn-sm dropdown-toggle" name="grade11" onchange="calculate(value,name)">
+						<option value="100"> Select</option>
+						<option value="10"> S </option>
+						<option value="9"> A </option>
+						<option value="8"> B </option>
+						<option value="7"> C </option>
+						<option value="6"> D </option>
+						<option value="5"> E </option>
+						<option value="0"> U </option>
+					</select>
+				</form>
+				</td>
+
+		</table>
+		<form id="note3"><br/>
+		<input type="button" class="btn btn-danger" value="Calculate" onclick="display()"/>
+
+	</form><br/><br/><br/><br/><strong>
+		 <div id="result">  </div><br/><br/>
+		<ul class="list-inline list-social-icons mb-0">
+			  <li class="list-inline-item">
+					<h7>&copy; dr_strange   </h7>
+					</li>
+            <li class="list-inline-item">
+              <a href="https://github.com/drstrange11">
+                <span style="color: #484848;font-size: 25px" class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://linkedin.com/in/ajay-r-1105/">
+                <span style="color: #484848;font-size: 25px" class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="https://www.codechef.com/users/dr_strange11">
+                <span style="color: #484848;font-size: 25px" class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-code fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+					</ul>
+</strong>
+</div></center></div>
+</body>
+</html>
